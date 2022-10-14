@@ -23,7 +23,26 @@ class Result
 
     public static void plusMinus(List<int> arr)
     {
-
+        int positives = 0;
+        int negatives = 0;
+        int zeros = 0;
+        
+        for (int i = 0; i < arr.Count; i++)
+        {
+            if (arr[i] < 0)
+                negatives = negatives + 1;
+            else if (arr[i] == 0)
+                zeros = zeros + 1;
+            else if (arr[i] > 0)
+                positives = positives + 1;
+        }
+        
+        int sum = negatives + positives + zeros;
+        decimal divided = (decimal)sum / (decimal)arr.Count;
+        
+        Console.WriteLine(((decimal)positives / arr.Count).ToString("N6"));
+        Console.WriteLine(((decimal)negatives / arr.Count).ToString("N6"));
+        Console.WriteLine(((decimal)zeros / arr.Count).ToString("N6"));
     }
 
 }
