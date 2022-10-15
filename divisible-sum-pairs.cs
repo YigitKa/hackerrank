@@ -27,9 +27,22 @@ class Result
 
     public static int divisibleSumPairs(int n, int k, List<int> ar)
     {
-       
+        int arrayLenght = n - 1;
+        int divisor = k;
+        int paired = 0;
+        for (int i = 0; i <= arrayLenght; i++)
+        {
+            for (int j = i + 1; j <= arrayLenght; j++)
+            {
+                Console.WriteLine($"{ar[i]} + {ar[j]} = {ar[i] + ar[j]} % {divisor} == {(ar[i] + ar[j]) % divisor}");
+                if ((ar[i] + ar[j]) % divisor == 0)
+                {
+                paired++;
+                }
+            }
+        }
+        return paired;
     }
-
 }
 
 class Solution
