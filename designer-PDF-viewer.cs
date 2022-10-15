@@ -26,7 +26,18 @@ class Result
 
     public static int designerPdfViewer(List<int> h, string word)
     {
-
+        char[] letters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+        List<int> sizes = new List<int>();
+        int area = 0;
+        foreach (char c in word.ToCharArray())
+        {
+            int size = h[Array.IndexOf(letters, c)];
+            sizes.Add(size);
+        }
+        sizes.Sort();
+        
+        area = sizes[sizes.Count - 1] * sizes.Count;
+        return area;
     }
 }
 
