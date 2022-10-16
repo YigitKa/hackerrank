@@ -15,6 +15,12 @@ using System;
 class Result
 {
 
+    public static string Reverse(string s)
+    {
+        char[] charArray = s.ToCharArray();
+        Array.Reverse(charArray);
+        return new string(charArray);
+    }
     /*
      * Complete the 'beautifulDays' function below.
      *
@@ -26,9 +32,18 @@ class Result
      */
     public static int beautifulDays(int i, int j, int k)
     {
-     
+        int divisor = k;
+        double endDay = j;
+        int beautifulNumberCount = 0;
+        for (int currentDay = i;currentDay <= endDay;currentDay++)
+        {
+            double reversed = Convert.ToDouble(Reverse(Convert.ToString(currentDay)));
+            double resNumber = (currentDay - reversed) / divisor;
+            if ((resNumber % divisor) % 1d == 0)
+            beautifulNumberCount++;
+        }
+        return beautifulNumberCount;
     }
-
 }
 
 class Solution
