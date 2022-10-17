@@ -38,6 +38,14 @@ class Result
         
         int startPosDiff = firstKangarooStartPos - SecondKangarooStartPos;
         
+        if (firstKangarooJumpCap > SecondKangarooJumpCap)
+        {
+            int rate = (firstKangarooStartPos - SecondKangarooStartPos) % (firstKangarooJumpCap - SecondKangarooJumpCap);
+             if(rate == 0) 
+             {
+                canCatch = true;    
+             }
+        }
         return canCatch ? "YES" : "NO";
     }
 
