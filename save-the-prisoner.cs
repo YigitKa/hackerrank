@@ -27,6 +27,12 @@ class Result
 
     public static int saveThePrisoner(int n, int m, int s)
     {
+        int prisonerCount = n;
+        int candyCount = m;
+        int startIndex = s;
+        
+        int badCandyIndex = (startIndex + candyCount - 1) % prisonerCount;
+        return badCandyIndex != 0 ? badCandyIndex : prisonerCount;
     }
 
 }
