@@ -24,7 +24,20 @@ class Result
 
     public static string encryption(string s)
     {
-      
+        string inputText = s;
+        int colCount = (int)Math.Ceiling(Math.Sqrt(inputText.Length));
+        string encryptedText = string.Empty;
+        for (int i = 0; i < colCount; i++)
+        {
+            int counter = 0;
+            while (i + (counter * colCount) < inputText.Length)
+            {
+                encryptedText += inputText[i + (counter * colCount)];
+                counter++;
+            }
+            encryptedText += " ";
+        }
+        return encryptedText;
     }
 
 }
