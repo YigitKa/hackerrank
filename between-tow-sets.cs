@@ -26,7 +26,44 @@ class Result
 
     public static int getTotalX(List<int> a, List<int> b)
     {
-       
+        int totalXs = 0;
+        int maximumA = a.Max(); 
+        int minimumB = b.Min(); 
+        int counter = 1;
+        int multipleOfMaxA = maximumA;
+
+        while (multipleOfMaxA  <= minimumB)
+        {
+            bool factorOfAll = true;
+
+            foreach (var item in a) //Time complexity O(n)
+            {
+                if (multipleOfMaxA % item != 0)
+                {
+                    factorOfAll = false;
+                    break;
+                }
+            }
+
+            if (factorOfAll)
+            {
+                foreach (var item in b) //Time complexity O(m)
+                {
+                    if (item % multipleOfMaxA != 0)
+                    {
+                        factorOfAll = false;
+                        break;
+                    }
+                }
+            }
+
+            if (factorOfAll)
+                totalXs++;
+
+            counter++;
+            multipleOfMaxA = maximumA * counter; 
+        }
+        return totalXs;
     }
 
 }
