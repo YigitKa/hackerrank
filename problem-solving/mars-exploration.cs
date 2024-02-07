@@ -24,8 +24,34 @@ class Result
 
     public static int marsExploration(string s)
     {
-       
-
+        string[] splitted = s.Split("SOS", StringSplitOptions.RemoveEmptyEntries);
+        
+        // bazı ihtimaller baştn elenmeli
+        if (splitted.Length == s.Length - 1 / 3)
+        {
+            return 0;
+        }
+        
+        int diffCount = 0;
+        for (int i = 0; i < s.Length; i = i + 3)
+        {
+            if (i == s.Length)
+            {
+                return diffCount;
+            }
+            string sos = s.Substring(i, 3);
+            if (sos != "SOS")
+            {
+              if (sos[0] != 'S')
+                diffCount++;
+              if (sos[1] != 'O')
+                diffCount++;
+              if (sos[2] != 'S')
+                diffCount++;
+            }
+        }
+        return diffCount;
+    }
     }
 
 class Solution
