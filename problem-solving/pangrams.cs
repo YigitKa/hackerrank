@@ -24,7 +24,16 @@ class Result
 
     public static string pangrams(string s)
     {
-
+        string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        string ret = "pangram";
+        foreach (char letter in letters)
+        {
+            if (!s.ToUpper().Contains(letter))
+            {
+                ret = "not pangram";
+            }   
+        }
+        return ret;
     }
 
 }
