@@ -24,7 +24,16 @@ class Result
 
     public static int camelcase(string s)
     {
-     
+        int wordCount = 1;
+        
+        for (int i = 1; i < s.Length; i++)
+        {
+            if (char.IsUpper(s[i]))
+            {
+                wordCount++;
+            }
+        }
+        return wordCount;
     }
 
 }
