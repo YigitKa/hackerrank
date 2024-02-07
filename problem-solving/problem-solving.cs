@@ -26,7 +26,23 @@ class Result
 
     public static int minimumNumber(int n, string password)
     {
-   
+        List<string> regexes = new List<string>(){ @"[a-z]", @"[A-Z]", @"[0-9]", @"[!@#$%^&*()\-+]"};
+        int req = 0;
+        
+        foreach (string regex in regexes)
+        {
+            if (!Regex.IsMatch(password, regex))
+            {
+                ++req;
+            }
+        }
+                
+        if (n >= 6 || n + req >= 6)
+        {
+            return req;
+        }
+                       
+        return 6 - n;
     }
 
 }
